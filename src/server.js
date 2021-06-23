@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const server = async() => {
     try{
-        const { MONGO_URI } = process.env;
+        const { MONGO_URI, PORT } = process.env;
         if (!MONGO_URI) throw new Error("MONGO_URI is required!!!");
         if ( !PORT ) throw new Error("PORT is required!!!");
 
