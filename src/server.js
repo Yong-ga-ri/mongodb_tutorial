@@ -6,7 +6,7 @@ const server = async() => {
     try{
         const { MONGO_URI } = process.env;
         if (!MONGO_URI) throw new Error("MONGO_URI is required!!!");
-
+        const( !PORT ) throw new Error("PORT is required!!!");
 
         await mongoose.connect(MONGO_URI, { dbName: 'movium', useNewUrlParser: true, useUnifiedTopology: true})
         console.log('MongoDB connected');
@@ -33,8 +33,8 @@ const server = async() => {
             return res.send({ success: true })
         });
 
-        app.listen(3000, async () => {
-            console.log('server listening on port 3000');
+        app.listen(PORT, async () => {
+            console.log(`server listening on port ${PORT}`);
         });
     }catch(err) {
         console.log(err);
