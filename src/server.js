@@ -2,11 +2,12 @@ const express = require('express');
 const app = express()
 const mongoose = require('mongoose')
 
-
-const MONGO_URI = 'mongodb+srv://ys:ew4hylORn4hKnJun@directory.4kdpv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-
 const server = async() => {
     try{
+        const { MONGO_URI } = process.env;
+        if (!MONGO_URI) throw new Error("MONGO_URI is required!!!");
+
+
         await mongoose.connect(MONGO_URI, { dbName: 'movium', useNewUrlParser: true, useUnifiedTopology: true})
         console.log('MongoDB connected');
         //req.body에서 json parsing 진행 middleware
