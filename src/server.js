@@ -26,16 +26,16 @@ const server = async() => {
                 console.log(err);
                 return res.status(500).send({ err:  err.message })
             }
-        })
+        });
 
         app.post('/test', function(req, res){
             console.log(req.body.name)
             return res.send({ success: true })
-        })
+        });
 
-        app.listen(3000, function(){
-            console.log('server listening on port 3000')
-        })
+        app.listen(3000, async () => {
+            console.log('server listening on port 3000');
+        });
     }catch(err) {
         console.log(err);
     }
