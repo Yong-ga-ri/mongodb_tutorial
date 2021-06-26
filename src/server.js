@@ -12,7 +12,7 @@ const server = async() => {
         console.log('MongoDB connected');
         //req.body에서 json parsing 진행 middleware
         app.use(express.json())
-
+//
         db = mongoose.connection
 
 
